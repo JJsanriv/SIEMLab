@@ -1,9 +1,11 @@
-Proyecto: Laboratorio SOC & Respuesta ante Incidentes con Wazuh
-🛡️ Descripción del Proyecto
+## **Proyecto: Laboratorio SOC & Respuesta ante Incidentes con Wazuh**
+
+### 🛡️ **Descripción del Proyecto**
 
 Implementación de un entorno de Security Operations Center (SOC) para la detección, monitorización y respuesta automatizada ante ciberataques. El laboratorio simula un entorno de producción donde un servidor (Ubuntu) es monitorizado por un SIEM (Wazuh) para detectar y mitigar amenazas en tiempo real.
 
-🛠️ Stack Tecnológico
+
+### 🛠️ **Stack Tecnológico**
 
     SIEM: Wazuh (Manager, Indexer, Dashboard).
 
@@ -13,12 +15,13 @@ Implementación de un entorno de Security Operations Center (SOC) para la detecc
 
     Servicios Monitorizados: OpenSSH, Apache Web Server.
 
-    Herramientas de Ataque: Hydra, Gobuster.
-
-🏗️ Arquitectura del Laboratorio
+    Herramientas de Ataque: Hydra, Dirb.
 
 
-🔍 Casos de Uso (Simulación de Ataques)
+### 🏗️ **Arquitectura del Laboratorio**
+
+
+### 🔍 **Casos de Uso (Simulación de Ataques)**
 1. Detección y Mitigación de Fuerza Bruta (SSH)
 
     Ataque: Ejecución de ataque de diccionario contra el puerto 22 usando hydra.
@@ -33,7 +36,8 @@ Implementación de un entorno de Security Operations Center (SOC) para la detecc
 
     Detección: Ingesta y parseo de los logs de acceso de Apache (/var/log/apache2/access.log). Wazuh detecta un comportamiento anómalo (múltiples errores 404 en poco tiempo) y genera una alerta de nivel 7.
 
-⚙️ Ingeniería de Detección y Respuesta (Blue Team)
+
+### ⚙️ **Ingeniería de Detección y Respuesta (Blue Team)**
 Configuración del Active Response
 
 Para automatizar la mitigación, se configuró el módulo de respuesta activa en el agente.
@@ -41,24 +45,24 @@ Para automatizar la mitigación, se configuró el módulo de respuesta activa en
     Archivo modificado: /var/ossec/etc/ossec.conf
 
     Acción: Bloqueo dinámico mediante firewall-drop.
-
-code Xml
-
-<!-- Ejemplo de configuración implementada -->
+```xml
 <active-response>
   <command>firewall-drop</command>
   <location>local</location>
   <rules_id>5710</rules_id>
   <timeout>60</timeout>
 </active-response>
+```
 
-📈 Resultados y Evidencias
+
+### 📈 **Resultados y Evidencias**
 
     Dashboard: Se visualizan los eventos críticos categorizados por la matriz MITRE ATT&CK.
 
     Automatización: Se verificó la integridad del bloqueo mediante el log active-responses.log y la inspección de las reglas de iptables en el servidor víctima.
 
-🚀 Aprendizajes Clave
+
+### 🚀 **Aprendizajes Clave**
 
     Ingeniería de Detección: Creación de reglas personalizadas en XML para categorizar amenazas específicas.
 
@@ -66,7 +70,8 @@ code Xml
 
     Mitigación: Reducción de la ventana de exposición mediante la automatización de bloqueos de red (Active Response).
 
-💡 Próximos pasos
+
+### 💡 **Próximos pasos**
 
     🔜 Implementar FIM (File Integrity Monitoring) para detectar cambios en archivos críticos de configuración web. 
 
