@@ -20,6 +20,8 @@ Implementación de un entorno de Security Operations Center (SOC) para la detecc
 
 ### 🏗️ **Arquitectura del Laboratorio**
 
+![Arquitectura](https://github.com/user-attachments/assets/aaba229c-9f61-4b0a-ae08-88a4a193cc11)
+
 
 ### 🔍 **Casos de Uso (Simulación de Ataques)**
 1. Detección y Mitigación de Fuerza Bruta (SSH)
